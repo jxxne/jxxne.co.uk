@@ -1,43 +1,98 @@
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
     width: 100%;
     margin: 0;
 }
-.loading {
+
+.background {
     width: calc(100vw);
     height: calc(100vh);
-    background-color: #180e4c;
-
+    background-color: #02012a;
 }
 
-.loading .logo {
-    width: 20%;
-    position: fixed; 
-    left: calc(50%);
-    top: calc(50%);
-    transform: translate(-50%, -50%);
-    animation-name: loading;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
+.background .layer1 {
+    position: relative;
+    height: 100%;
+    background: linear-gradient(#02012a 25%, #a54483 50%, #a54483 50%, #02012a 100%);
+    /**filter: blur(2px);**/
+}
+   
+.background .layer1 .wrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0 auto;
+    perspective: 360px;
+    perspective-origin: 50% 50%;
 }
 
-.finishedloading {
-    transition: opacity 0.5s;
-    opacity: 0%;
+.background .layer1 .top-plane, .bottom-plane {
+    width: 200%;
+    height: 130%;
+    position: absolute;
+    bottom: -30%;
+    left: -50%;
+    background-image: -webkit-linear-gradient(#a54483 2px, transparent 2px), -webkit-linear-gradient(left, #a54483 2px, transparent 2px);
+    background-size: 100px 100px,100px 100px;
+    background-position: -1px -1px,-1px -1px;
+    transform: rotateX(85deg);
+    animation: planeMoveTop 12s infinite linear;
 }
 
-@keyframes loading {
-    0% {opacity: 100%;}
-    50% {opacity: 75%;}
-    100% {opacity: 100%;}
+.background .layer1 .bottom-plane {
+    transform: rotateX(-85deg);
+    top: -30%;
+    animation: planeMoveBot 12s infinite linear;
 }
+  
+  @keyframes planeMoveTop {
+    from {
+      background-position: 0px -100px,0px 0px;
+    }
+    to {
+      background-position: 0px 0px, 100px 0px;
+    }
+  }
+  @keyframes planeMoveBot {
+    from {
+      background-position: 0px -100px, 100px 0px;
+    }
+    to {
+        background-position: 0px 0px,0px 0px;
+    }
+  }
+  @media (max-height: 350px) {
+    .background .layer1 .wrap {
+      perspective: 210px;
+    }
+  }
 
+  .background .layer2 {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+  }
 
-
-/*
-
-HSL
---lavender-blush: hsla(350, 64%, 95%, 1);
---tea-rose-red: hsla(0, 71%, 88%, 1);
---lilac: hsla(301, 32%, 71%, 1);
---federal-blue: hsla(247, 98%, 16%, 1);
-*/
+  .background .layer3 {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background: rgb(0, 0, 0);
+    background: radial-gradient(circle, rgba(0, 0, 0, 0) 27%, rgba(0, 0, 0,1) 97%); 
+  }
