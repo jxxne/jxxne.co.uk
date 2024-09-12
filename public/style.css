@@ -1,0 +1,43 @@
+body {
+    width: 100%;
+    margin: 0;
+}
+.loading {
+    width: calc(100vw);
+    height: calc(100vh);
+    background-color: #180e4c;
+
+}
+
+.loading .logo {
+    width: 20%;
+    position: fixed; 
+    left: calc(50%);
+    top: calc(50%);
+    transform: translate(-50%, -50%);
+    animation-name: loading;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.finishedloading {
+    transition: opacity 0.5s;
+    opacity: 0%;
+}
+
+@keyframes loading {
+    0% {opacity: 100%;}
+    50% {opacity: 75%;}
+    100% {opacity: 100%;}
+}
+
+
+
+/*
+
+HSL
+--lavender-blush: hsla(350, 64%, 95%, 1);
+--tea-rose-red: hsla(0, 71%, 88%, 1);
+--lilac: hsla(301, 32%, 71%, 1);
+--federal-blue: hsla(247, 98%, 16%, 1);
+*/
