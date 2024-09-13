@@ -6,12 +6,15 @@ html {
 body {
     width: 100%;
     margin: 0;
+    font-family: Hack, monospace;
 }
 
 .background {
     width: calc(100vw);
     height: calc(100vh);
     background-color: #02012a;
+    position:fixed;
+    top: 0;
 }
 
 .background .layer1 {
@@ -57,6 +60,7 @@ body {
       background-position: 0px 0px, 100px 0px;
     }
   }
+  
   @keyframes planeMoveBot {
     from {
       background-position: 0px -100px, 100px 0px;
@@ -80,7 +84,6 @@ body {
     bottom: 0;
     right: 0;
     background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    z-index: 2;
     background-size: 100% 2px, 3px 100%;
     pointer-events: none;
   }
@@ -95,4 +98,55 @@ body {
     position: absolute;
     background: rgb(0, 0, 0);
     background: radial-gradient(circle, rgba(0, 0, 0, 0) 27%, rgba(0, 0, 0,1) 97%); 
+  }
+
+  .menu {
+    z-index: 10;
+    background-color: #02012a;
+    position: absolute;
+    width:max-content;
+    height: auto;
+    left: calc(50vw);
+    top: 10px;
+    transform: translateX(-50%);
+    border-radius: 35px;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55); 
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55);
+    padding: 20px;
+  }
+  .menu .page {
+    color: #a54483;
+    font-size: 20px;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 30px;
+    transition: 0.2s;
+    text-decoration: none;
+  }
+  .menu .page:hover {
+    background-color: #a54483;
+    color: #02012a;
+    transition: 0.2s;
+  }
+
+  .content {
+    z-index: 10;
+    background-color: #180e4c;
+    color: #da6c8c;
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: calc(50vw);
+    top: calc(50vh);
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55); 
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55);
+    padding: 20px;
+  }
+  .content * {
+    margin: 0px;
+  }
+  .content .logo {
+    width: 35%;
   }
