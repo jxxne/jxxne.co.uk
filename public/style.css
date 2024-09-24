@@ -138,17 +138,26 @@ body {
     background-color: #180e4c;
     color: #da6c8c;
     position: absolute;
-    width: auto;
+    width: calc(50vw);
     height: auto;
-    left: calc(50vw);
     top: calc(50vh);
+    left: calc(50vw);
     transform: translate(-50%, -50%);
     border-radius: 10px;
     -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55); 
     box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55);
     padding: 15px;
-    visibility: hidden;
+    transition: 1s;
+    /**visibility: hidden;**/
   }
+
+  .hidden {
+    left: calc(0vw);
+    transform: translate(-100%, -50%);
+    visibility: hidden;
+    opacity: 0;
+  }
+
   .content * {
     margin: 0px;
   }
