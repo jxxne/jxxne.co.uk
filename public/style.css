@@ -147,15 +147,34 @@ body {
     -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55); 
     box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55);
     padding: 15px;
-    transition: 1s;
+    transition: 1.2s;
     /**visibility: hidden;**/
+  }
+  .content h3 {
+    font-weight: 600;
+  }
+
+  .content .link {
+    text-decoration: none;
+    color: #da6c8c;
+    font-weight: 600;
+  }
+
+  .content .nextoeachother {
+    width: 100%;
+  
+    display: flex;
+    gap: 16px;
+  }
+  
+  .content .nextoeachother .box { 
+    flex-grow: 1; 
   }
 
   .hidden {
     left: calc(0vw);
     transform: translate(-100%, -50%);
     visibility: hidden;
-    opacity: 0;
   }
 
   .content * {
