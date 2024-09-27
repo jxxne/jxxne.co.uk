@@ -153,6 +153,13 @@ body {
   .content h3 {
     font-weight: 600;
   }
+  .about {
+    max-width: 720px;
+  }
+  .about .side {
+    float: right;
+    padding-left: 15px;
+  }
 
   .content .link {
     text-decoration: none;
