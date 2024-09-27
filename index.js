@@ -28,7 +28,6 @@ app.get('/api/getTopTracks', (req, res) => {
         .then(res => res.json())
         .then((json) => {
             cache.put('cachedTopTracks', json, 60*60*1000)
-            console.log("cahce worky!!!")
             res.status(200).json(json)
         });
     }
