@@ -32,6 +32,20 @@ app.get('/api/getTopTracks', (req, res) => {
         });
     }
   });  
+
+  app.get('/api/getRecentTracks', (req, res) => {
+    const cachedRecentTracks = cache.get('cachedRecentTracks');
+    if(cachedRecentTracks) {
+        res.status(200).json(cachedRecentTracks)
+    } else {
+        fetch("http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=" + lastfmusername + "&api_key=" + lastfmkey + "&format=json", {method: "Get"})
+        .then(res => res.json())
+        .then((json) => {
+            cache.put('cachedRecentTracks', json, 60*60*1000)
+            res.status(200).json(json)
+        });
+    }
+  });  
   
 app.listen(8080, function(error){ 
     if(error) throw error 
