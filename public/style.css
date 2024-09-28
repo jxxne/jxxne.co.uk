@@ -148,6 +148,8 @@ body {
     box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55);
     padding: 15px;
     transition: 1.2s;
+    max-height: 60vh;
+    overflow-y: auto;
     /**visibility: hidden;**/
   }
   .content h3 {
@@ -167,15 +169,69 @@ body {
     font-weight: 600;
   }
 
-  .content .nextoeachother {
-    width: 100%;
-  
+  .music {
+    width: 720px;
     display: flex;
     gap: 16px;
   }
   
-  .content .nextoeachother .box { 
+  .music .boxleft { 
+    float: left;
+    max-width: 360px;
     flex-grow: 1; 
+    text-align: left;
+  }
+
+  .music .albums {
+    display: flex;
+  }
+  .music .album {
+    width: 110px;
+    height: 110px;
+    margin-right: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55);
+  }
+  .music .album img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .music .album * {
+    position: absolute;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .music .album .hover {
+    background-color: rgba(0, 0, 0,0.9);
+    width: 110px;
+    height: 110px;
+    opacity: 0;
+    transition: 0.2s;
+  }
+  .music .album:hover .hover {
+    opacity: 1;
+  }
+
+  .music .album .hover a {
+    color: #da6c8c;
+    text-align: center;
+    top: 55px;
+    left: 55px;
+    transform: translate(-50%, -50%);
+    max-width: 100px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+
+  .music .boxright { 
+    float: right;
+    max-width: 360px;
+    flex-grow: 1; 
+    text-align: right;
   }
 
   .hidden {
