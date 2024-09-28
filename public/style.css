@@ -170,25 +170,28 @@ body {
   }
 
   .music {
-    width: 720px;
+    width: calc(25vw + 364px);
     display: flex;
     gap: 16px;
   }
   
   .music .boxleft { 
     float: left;
-    max-width: 360px;
-    flex-grow: 1; 
+    width: 25vw;
     text-align: left;
   }
 
   .music .albums {
     display: flex;
+    width: 25vw;
+    flex-basis: auto;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   .music .album {
-    width: 110px;
+    min-width: 110px;
     height: 110px;
-    margin-right: 10px;
     margin-top: 10px;
     overflow: hidden;
     box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55);
@@ -227,9 +230,75 @@ body {
     user-select: none; /* Standard syntax */
   }
 
+  .music .listening {
+    margin-top: 10px;
+    width: 348px;
+    background-color: #02012a;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55);
+    overflow: auto;
+    float: left;
+    text-align: left;
+}
+.music .listening .item {
+  width: 348px;
+  height: 65px;
+  display:flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.music .listening .item .trackname {
+  z-index: 5;
+  color: white;
+  font-weight: 600;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0,0.55);
+  font-size: 19px;
+  height: 19px;
+  left: 75px;
+  top: 29px;
+  position: absolute;
+}
+.music .listening .item .artistname {
+  z-index: 5;
+  color: white;
+  font-weight: 200;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0,0.55);
+  font-size: 14px;
+  height: 19px;
+  left: 75px;
+  top: 14px;
+  position: absolute;
+}
+
+.music .listening .item .position {
+  z-index: 5;
+  color: white;
+  font-weight: 200;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0,0.55);
+  font-size: 20px;
+  height: 20px;
+  left: 338px;
+  top: 22px;
+  transform: translate(-100%, 0%);
+  position: absolute;
+}
+.music .listening .item .backgroundimage {
+  z-index: 2;
+  left: -20px;
+  top: -50px;
+  position: absolute;
+  object-position: 0px -100px;
+  width: 500px;
+  height: 300px;
+  filter: blur(10px);
+
+}
+
   .music .boxright { 
     float: right;
-    max-width: 360px;
+    width: 360px;
     flex-grow: 1; 
     text-align: right;
   }
