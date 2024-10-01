@@ -175,7 +175,7 @@ body {
   }
   .music .boxleft { 
     float: left;
-    width: 25vw;
+    width: auto;
     text-align: left;
   }
 
@@ -242,6 +242,7 @@ body {
 .music .listening .item {
   width: 348px;
   height: 65px;
+  background-color: black;
   display:flex;
   position: relative;
   overflow: hidden;
