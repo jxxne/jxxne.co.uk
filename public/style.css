@@ -186,6 +186,7 @@ body {
     align-items: stretch;
     flex-wrap: wrap;
     gap: 10px;
+    max-width: 352px;
   }
   .music .album {
     min-width: 110px;
@@ -242,7 +243,6 @@ body {
 .music .listening .item {
   width: 348px;
   height: 65px;
-  background-color: black;
   display:flex;
   position: relative;
   overflow: hidden;
