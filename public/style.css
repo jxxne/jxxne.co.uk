@@ -43,13 +43,13 @@ body {
     background-size: 100px 100px,100px 100px;
     background-position: -1px -1px,-1px -1px;
     transform: rotateX(85deg);
-    animation: planeMoveTop 12s infinite linear;
+    /*animation: planeMoveTop 12s infinite linear;*/
 }
 
 .background .layer1 .bottom-plane {
     transform: rotateX(-85deg);
     top: -30%;
-    animation: planeMoveBot 12s infinite linear;
+    /*animation: planeMoveBot 30s infinite linear;*/
 }
   
   @keyframes planeMoveTop {
@@ -138,7 +138,7 @@ body {
     background-color: #180e4c;
     color: #da6c8c;
     position: absolute;
-    width: calc(50vw);
+    /*width: calc(50vw);*/
     height: auto;
     top: calc(50vh);
     left: calc(50vw);
@@ -330,4 +330,64 @@ body {
     text-decoration: none;
     font-weight: 400;
     color: #da6c8c;
+  }
+
+
+  .socials {
+    width: auto;
+    display: flex;
+  }
+  .socials .boxleft { 
+    float: left;
+    width: 260px;
+  }
+
+  .socials .boxleft .item { 
+    float: left;
+    width: 100%;
+    height: calc(60px * 1.2);
+    display: flex;
+    position: relative;
+    color: #da6c8c;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+  .socials .boxleft .item:hover { 
+    background-color: #da6c8c;
+    color: #180e4c;
+    transition: 0.2s;
+  }
+
+  .socials .boxleft .item .fa-brands {
+    font-size: calc(48px * 1.2);
+    top: calc(6px * 1.2);
+    left: calc(30px * 1.2);
+    transform: translateX(-50%);
+    position: absolute;
+  }
+  .socials .boxleft .item h1 {
+    z-index: 5;
+    font-weight: 600;
+    font-size: calc(20px * 1.2);
+    height: calc(20px * 1.2);
+    left: calc(65px * 1.2);
+    top: calc(9px * 1.2);
+    position: absolute;
+  }
+  .socials .boxleft .item p {
+    z-index: 5;
+    font-weight: 200;
+    font-size: calc(15px * 1.2);
+    height: calc(15px * 1.2);
+    left: calc(65px * 1.2);
+    top: calc(30px * 1.2);
+    position: absolute;
+  }
+
+  .socials .boxright { 
+    float: right;
+    flex-grow: 1; 
+
   }
