@@ -172,6 +172,7 @@ body {
   .music {
     width: auto;
     display: flex;
+    max-height: 462px;
   }
   .music .boxleft { 
     float: left;
@@ -336,10 +337,11 @@ body {
   .socials {
     width: auto;
     display: flex;
+    padding: 0px;
   }
   .socials .boxleft { 
     float: left;
-    width: 260px;
+    width: 370px;
   }
 
   .socials .boxleft .item { 
@@ -363,7 +365,7 @@ body {
   .socials .boxleft .item .fa-brands {
     font-size: calc(48px * 1.2);
     top: calc(6px * 1.2);
-    left: calc(30px * 1.2);
+    left: 51px;
     transform: translateX(-50%);
     position: absolute;
   }
@@ -372,22 +374,20 @@ body {
     font-weight: 600;
     font-size: calc(20px * 1.2);
     height: calc(20px * 1.2);
-    left: calc(65px * 1.2);
+    left: 93px;
     top: calc(9px * 1.2);
     position: absolute;
+    text-align: right;
+    width: 260px;
   }
   .socials .boxleft .item p {
     z-index: 5;
     font-weight: 200;
     font-size: calc(15px * 1.2);
     height: calc(15px * 1.2);
-    left: calc(65px * 1.2);
+    left: 93px;
     top: calc(30px * 1.2);
     position: absolute;
-  }
-
-  .socials .boxright { 
-    float: right;
-    flex-grow: 1; 
-
+    text-align: right;
+    width: 255px;
   }
