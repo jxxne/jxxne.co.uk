@@ -4,20 +4,49 @@ const path = require('path')
 const hbs = require('hbs') 
 const app = express() 
 const cache = require('memory-cache')
+const { Client, GatewayIntentBits } = require('discord.js');
 
 const lastfmkey = config.LASTFM_KEY
 const lastfmusername = "jxxne"
   
-
+const discordtoken = config.DISCORD_TOKEN
+const discordid = "1096132124983165039";
 
 // View Engine Setup 
 app.set('views', path.join(__dirname)) 
 app.set('view engine', 'hbs') 
 app.use(express.static('public'))
+app.use(express.json());
   
 app.get('/', function(req, res){ 
     
 }) 
+
+const discordclient = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessages
+    ]
+});
+
+app.get('/api/getDiscordUser', async (req, res) => {
+    try {
+        const userId = discordid;
+        const user = await discordclient.users.fetch(userId);
+        const userData = {
+            id: user.id,
+            username: user.username,
+            displayName: user.displayName,
+            avatar: user.displayAvatarURL({ size: 512 }),
+            banner: user.bannerURL({ size: 512 }),
+        };
+        res.json(userData);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'An error occurred' });
+    }
+});
 
 app.get('/api/getTopTracks', (req, res) => {
     const cachedTopTracks = cache.get('cachedTopTracks');
@@ -71,3 +100,9 @@ app.listen(8080, function(error){
     if(error) throw error 
     console.log("Server created Successfully") 
 }) 
+
+discordclient.once('ready', () => {
+    console.log(`Logged in as ${discordclient.user.tag}`);
+});
+
+discordclient.login(discordtoken);
