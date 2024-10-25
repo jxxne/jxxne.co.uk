@@ -333,18 +333,19 @@ body {
     color: #da6c8c;
   }
 
-
   .socials {
-    width: auto;
-    display: flex;
-    padding: 0px;
-  }
-  .socials .boxleft { 
-    float: left;
     width: 370px;
+    padding: 0px;
+    height: 443px;
+    overflow: auto;
   }
 
-  .socials .boxleft .item { 
+  .socials .mainlinks { 
+    width: 370px;
+    height: 288px;
+  }
+
+  .socials .mainlinks .item { 
     float: left;
     width: 100%;
     height: calc(60px * 1.2);
@@ -356,38 +357,74 @@ body {
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
   }
-  .socials .boxleft .item:hover { 
+  .socials .mainlinks .item:hover { 
     background-color: #da6c8c;
     color: #180e4c;
     transition: 0.2s;
   }
 
-  .socials .boxleft .item .fa-brands {
-    font-size: calc(48px * 1.2);
-    top: calc(6px * 1.2);
+  .socials .mainlinks .item .fa-brands {
+    font-size: 50px;
+    top: 11px;
     left: 51px;
     transform: translateX(-50%);
     position: absolute;
   }
-  .socials .boxleft .item h1 {
+  .socials .mainlinks .item h1 {
     z-index: 5;
     font-weight: 600;
-    font-size: calc(20px * 1.2);
-    height: calc(20px * 1.2);
+    font-size: 24px;
     left: 93px;
-    top: calc(9px * 1.2);
+    top: 10px;
     position: absolute;
     text-align: right;
     width: 260px;
   }
-  .socials .boxleft .item p {
+  .socials .mainlinks .item p {
     z-index: 5;
     font-weight: 200;
-    font-size: calc(15px * 1.2);
-    height: calc(15px * 1.2);
+    font-size: 19px;
     left: 93px;
-    top: calc(30px * 1.2);
+    top: 36px;
     position: absolute;
     text-align: right;
     width: 255px;
+  }
+
+  .socials .secondarylinks {
+    word-spacing: 25px;
+    height: 35px;
+    position: relative;
+    left: 185px;
+    transform: translateX(-50%);
+    width: fit-content;
+    padding-bottom: 10px;
+  }
+
+  .socials .secondarylinks .fa-brands {
+    font-size: 35px;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    transition: 0.2s;
+  }
+  .socials .secondarylinks .fa-brands:hover {
+    filter: drop-shadow(0px 0px 3px rgba(218, 108, 140, 190));
+  }
+
+  .socials .title {
+    font-weight: 300;
+    width: 370px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .socials .secondarytitle {
+    font-weight: 300;
+    font-size: 20px;
+    width: 370px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
