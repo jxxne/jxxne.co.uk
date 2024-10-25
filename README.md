@@ -14,4 +14,4 @@ module.exports = {
 }
 ```
 
-you can get an api key for last.fm [here,](https://www.last.fm/api/authentication), and for discord [here.](https://discord.com/developers/applications) please note, you will have to enable intents on the discord bot.
+you can get an api key for last.fm [here,](https://www.last.fm/api/authentication) and for discord [here.](https://discord.com/developers/applications) please note, you will have to enable intents on the discord bot.
