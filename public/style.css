@@ -485,6 +485,16 @@ body {
     z-index: 6;
   }
 
+  .contact .discordprofile .activity {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 300;
+    left: 120px;
+    top: 55px;
+    z-index: 6;
+    max-width: 210px;
+  }
+
   .contact .discordprofile .status {
     color: #ffffff;
     font-size: 17px;
@@ -494,7 +504,7 @@ body {
     z-index: 6;
   }
 
-  .contact .discordprofile .activity {
+  .contact .discordprofile .statusbackground {
     height: 50px;
     width: 340px;
     left: 0;
