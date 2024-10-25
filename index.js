@@ -26,25 +26,50 @@ const discordclient = new Client({
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMembers,
-        GatewayIntentBits.GuildMessages
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildPresences
     ]
 });
 
 app.get('/api/getDiscordUser', async (req, res) => {
-    try {
-        const userId = discordid;
-        const user = await discordclient.users.fetch(userId);
-        const userData = {
-            id: user.id,
-            username: user.username,
-            displayName: user.displayName,
-            avatar: user.displayAvatarURL({ size: 512 }),
-            banner: user.bannerURL({ size: 512 }),
-        };
-        res.json(userData);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'An error occurred' });
+
+    const cachedDiscordUser = cache.get('cachedDiscordUser')
+    if(cachedDiscordUser) {
+        res.status(200).json(cachedDiscordUser)
+    } else {
+        try {
+            const userId = discordid;
+            const user = await discordclient.users.fetch(userId, { force: true }); 
+
+            const guilds = discordclient.guilds.cache;
+            let status = "";
+    
+            // Iterate through guilds to get the user's bio and status
+            for (const guild of guilds.values()) {
+                const member = await guild.members.fetch(user.id).catch(() => null);
+                if (member) {
+                    activities = member.presence?.activities;
+                    status = member.presence?.status;
+                    break;
+                }
+            }
+
+            const userData = {
+                id: user.id,
+                username: user.username,
+                displayName: user.displayName,
+                avatar: user.displayAvatarURL({ size: 512 }),
+                banner: user.bannerURL({ size: 512 }),
+                status: status,
+                activities: activities
+            };
+            res.json(userData);
+            cache.put('cachedDiscordUser', userData, 60*100*10)
+            console.log("Discord user cache is empty/has expired, saving cache")
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'An error occurred' });
+        }
     }
 });
 

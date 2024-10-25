@@ -33,6 +33,32 @@ $.getJSON('../api/getRecentTracks', function(data) {
     }
 });
 
+
+$.getJSON('../api/getDiscordUser', function(data) {
+    document.getElementById("discordpfp").setAttribute("src", data["avatar"]);
+    document.getElementById("discordbanner").setAttribute("src", data["banner"]);
+    document.getElementById("discorddisplayname").innerText = data["displayName"];
+    document.getElementById("discordusername").innerText = data["username"];
+    switch(data["status"]) {
+        default:
+            document.getElementById("discordstatus").innerText = "offline";
+            document.getElementById("discordstatusbg").style.backgroundColor = "rgb(124, 127, 136)";
+            break;
+        case 'dnd':
+            document.getElementById("discordstatus").innerText = "do not disturb";
+            document.getElementById("discordstatusbg").style.backgroundColor = "rgb(223, 79, 75)";
+            break;
+        case 'idle':
+            document.getElementById("discordstatus").innerText = "idle";
+            document.getElementById("discordstatusbg").style.backgroundColor = "rgb(231, 181, 78)";
+            break;
+        case 'online':
+            document.getElementById("discordstatus").innerText = "online";
+            document.getElementById("discordstatusbg").style.backgroundColor = "rgb(80, 163, 97)";
+            break;
+    }
+});
+
 function truncateString(string, maxlength) {
     if(string.length > maxlength) {
         return string.substring(0, maxlength-3) + "...";
