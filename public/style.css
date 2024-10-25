@@ -431,7 +431,7 @@ body {
 
   .contact {
     width: 340px;
-    height: 150px;
+    height: 256px;
   }
 
   .contact .discordprofile {
@@ -443,6 +443,10 @@ body {
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55);
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    cursor: pointer;
   }
 
   .contact .discordprofile * {
@@ -511,4 +515,43 @@ body {
     top: 100px;
     z-index: 2;
     background-color: black;
+  }
+
+  .contact .title {
+    font-weight: 300;
+  width: 340px;
+  text-align: center;
+  padding-bottom: 10px;
+  }
+
+  .contact .discordprofile .hover {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    left: 0;
+    top: 0;
+    width: 340px;
+    height: 150px;
+    background-color: rgba(0, 0, 0,0.9);
+    z-index: 8;
+    opacity: 0;
+  }
+  .contact .discordprofile:hover .hover {
+    opacity: 1;
+    transition: 0.2s;
+  }
+
+  .contact .discordprofile .hover a {
+    color: #da6c8c;
+    text-align: center;
+    top: 75px;
+    left: 170px;
+    transform: translate(-50%, -50%);
+  }
+  .contact .email {
+    font-weight: 300;
+    font-size: 20px;
+    width: 340px;
+    text-align: center;
+    padding-top: 10px;
   }
