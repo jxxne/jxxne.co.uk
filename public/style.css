@@ -7,6 +7,8 @@ body {
     width: 100%;
     margin: 0;
     font-family: Hack, monospace;
+    background-color: #000000;
+    transition: 0.5s;
 }
 
 .background {
@@ -269,12 +271,12 @@ body {
 }
 
 *:hover::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.5); /* Slightly more opaque on hover */
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 *:hover {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Semi-transparent scrollbar thumb */
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent; 
 }
 .music .listening .item {
   width: 348px;
@@ -590,4 +592,77 @@ body {
     width: 340px;
     text-align: center;
     padding-top: 10px;
+  }
+
+  .menu-button {
+    color: #da6c8c;
+    background-color: #180e4c;
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    left:10px;
+    top: 10px;
+    border-radius: 40px;
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 4;
+  }
+
+  .menu-button.active {
+    background-color: #da6c8c;
+    color: #180e4c;
+    transition: 0.2s;
+  }
+
+  .menu-button .fa-bars {
+    top: 50px;
+    left: 50px;
+    font-size: 40px;
+    transform: translate(-50%, -50%);
+    position: fixed;
+  }
+  .mobile-menu {
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height:100vh;
+    background-color: #180e4c;
+    position: fixed;
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+  }
+  .mobile-menu.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  .pages {
+    top: 100px;
+    left: 0;
+    width: 100vw;
+    position: fixed;
+  }
+  .mobile-menu .pages a {
+    color: #da6c8c;
+    width: calc(100vw - 40px);
+    text-align: right;
+    position: absolute;
+    font-size: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 40px;
+    position:relative;
+    display: inline-block;
+  }
+  @media (max-width:600px) {
+    .menu {
+      visibility: hidden;
+      opacity: 0;
+    }
+    .menu-button {
+      visibility: visible;
+      opacity: 1;
+    }
   }

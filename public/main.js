@@ -101,3 +101,18 @@ for (let i = 0; i < 10; i++) {
     document.getElementById("listening").innerHTML = document.getElementById("listening").innerHTML + '<div class="item">             <img src="' + data["recenttracks"]["track"][i]["image"][1]["#text"] + '" class="backgroundimage">             <img style="z-index: 5;" src="' + data["recenttracks"]["track"][i]["image"][1]["#text"] + '">             <p class="artistname">'+ data["recenttracks"]["track"][i]["artist"]["#text"].toLowerCase() +'</p>             <p class="trackname">'+ data["recenttracks"]["track"][i]["name"].toLowerCase() +'</p>             <p class="position">' + (i+1) + '</p>           </div>';
     console.log(i);
   }*/
+
+    function mobileMenu() {
+        menu = document.getElementById("mobile-menu");
+        toggle = document.getElementById("menu-button");
+        if(menu.classList.contains("active")) {
+            menu.classList.remove("active");
+            toggle.classList.remove("active");
+            document.body.style.backgroundColor = "#000000";
+            
+        } else {
+            menu.classList.add("active");
+            toggle.classList.add("active");
+            document.body.style.backgroundColor = "#180e4c";
+        }
+    }
