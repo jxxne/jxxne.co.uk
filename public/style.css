@@ -45,13 +45,13 @@ body {
     background-size: 100px 100px,100px 100px;
     background-position: -1px -1px,-1px -1px;
     transform: rotateX(85deg);
-    /*animation: planeMoveTop 12s infinite linear;*/
+    animation: planeMoveTop 12s infinite linear;
 }
 
 .background .layer1 .bottom-plane {
     transform: rotateX(-85deg);
     top: -30%;
-    /*animation: planeMoveBot 30s infinite linear;*/
+    animation: planeMoveBot 30s infinite linear;
 }
   
   @keyframes planeMoveTop {
@@ -664,5 +664,23 @@ body {
     .menu-button {
       visibility: visible;
       opacity: 1;
+    }
+    .background .logo {
+      width: 75%;
+    }
+    .content {
+      max-width: 100vw;
+      width: calc(100vw - 15px);
+      box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+    }
+    .about {
+      text-align: center;
+    }
+    .side {
+      width: 100px;
+      height: 200px;
+    }
+    .content p {
+      font-size: 13px;
     }
   }

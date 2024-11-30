@@ -7,6 +7,8 @@ function revealWindow(pageId) {
         }
     }
     document.getElementById(pageId).classList.remove("hidden");
+    mobileMenu();
+    
 }
 
 $.getJSON('../api/getTopTracks', function(data) {
