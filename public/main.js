@@ -39,35 +39,46 @@ $.getJSON('../api/getDiscordUser', function(data) {
     document.getElementById("discordbanner").setAttribute("src", data["banner"]);
     document.getElementById("discorddisplayname").innerText = data["displayName"];
     document.getElementById("discordusername").innerText = data["username"];
-    switch(data["activities"][0]["type"]) {
-        case 0:
-            const pastDate = new Date(data["activities"][0]["timestamps"]["start"]);
-            console.log(pastDate);
-            const currentDate = new Date();
-            let timeElapsed = "";
-            if((currentDate - pastDate) / (1000 * 60 * 60) >= 1) {
-                timeElapsed = Math.floor((currentDate - pastDate) / (1000 * 60 * 60)) + " hours"
-            } else {
-                timeElapsed = Math.floor((currentDate - pastDate) / (1000 * 60)) + " minutes"
+    if (Array.isArray(data["activities"]) && data["activities"].length > 0) {
+        const activity = data["activities"][0];
+        if (activity && activity["type"] !== undefined) {
+            switch (activity["type"]) {
+                case 0: {
+                    const pastDate = new Date(activity["timestamps"]["start"]);
+                    console.log(pastDate);
+                    const currentDate = new Date();
+                    let timeElapsed = "";
+                    if ((currentDate - pastDate) / (1000 * 60 * 60) >= 1) {
+                        timeElapsed = Math.floor((currentDate - pastDate) / (1000 * 60 * 60)) + " hours";
+                    } else {
+                        timeElapsed = Math.floor((currentDate - pastDate) / (1000 * 60)) + " minutes";
+                    }
+                    document.getElementById("discordactivity").innerText = 
+                        "on " + activity["name"].toLowerCase() + " for " + timeElapsed;
+                    break;
+                }
+                case 1:
+                    // streaming
+                    break;
+                case 2:
+                    document.getElementById("discordactivity").innerText = 
+                        "listening to " + activity["details"].toLowerCase() + 
+                        " by " + activity["state"].toLowerCase();
+                    break;
+                case 3:
+                    // watching
+                    break;
+                case 4:
+                    document.getElementById("discordactivity").innerText = 
+                        "\"" + activity["state"] + "\"";
+                    break;
+                case 5:
+                    // competing
+                    break;
+                default:
+                    break;
             }
-
-            document.getElementById("discordactivity").innerText = "on " + data["activities"][0]["name"].toLowerCase() + " for " + timeElapsed;
-            break;
-        case 1:
-            //streaming
-            break;
-        case 2:
-            document.getElementById("discordactivity").innerText = "listening to " + data["activities"][0]["details"].toLowerCase() + " by " +  data["activities"][0]["state"].toLowerCase()
-            break;
-        case 3:
-            //watching
-            break;
-        case 4:
-            document.getElementById("discordactivity").innerText = "\"" + data["activities"][0]["state"] + "\""
-            break;
-        case 5:
-            //competing
-            break;
+        }
     }
     switch(data["status"]) {
         default:
