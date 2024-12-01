@@ -7,8 +7,15 @@ function revealWindow(pageId) {
         }
     }
     document.getElementById(pageId).classList.remove("hidden");
-    mobileMenu();
-    
+
+    menu = document.getElementById("mobile-menu");
+        toggle = document.getElementById("menu-button");
+
+    if(menu.classList.contains("active")) {
+        menu.classList.remove("active");
+        toggle.classList.remove("active");
+        document.body.style.backgroundColor = "#000000"; 
+    } 
 }
 
 $.getJSON('../api/getTopTracks', function(data) {
@@ -16,7 +23,7 @@ $.getJSON('../api/getTopTracks', function(data) {
     document.getElementById("abouttrackname").setAttribute("href",data["toptracks"]["track"][0]["url"]);
     document.getElementById("abouttrackname").innerHTML = document.getElementById("abouttrackname").innerHTML.replace("INSERTTRACKHERE", data["toptracks"]["track"][0]["artist"]["name"].toLowerCase() + " - " + data["toptracks"]["track"][0]["name"].toLowerCase());
     for (let i = 0; i < 10; i++) {
-        document.getElementById("listening").innerHTML = document.getElementById("listening").innerHTML + '<div class="item">             <p class="artistname" style="left: 10px;">'+ data["toptracks"]["track"][i]["artist"]["name"].toLowerCase() +'</p>             <p class="trackname" style="left: 10px;">'+ data["toptracks"]["track"][i]["name"].toLowerCase() +'</p>             <p class="position">' + (i+1) + '</p>           </div>';
+        document.getElementById("listening").innerHTML = document.getElementById("listening").innerHTML + '<div class="item">             <p class="artistname" style="left: 10px;">'+ truncateString(data["toptracks"]["track"][i]["artist"]["name"].toLowerCase(), 36) +'</p>             <p class="trackname" style="left: 10px;">'+ data["toptracks"]["track"][i]["name"].toLowerCase() +'</p>             <p class="position">' + (i+1) + '</p>           </div>';
     }
     /*document.getElementById("abouttrackname").innerHTML = document.getElementById("abouttrackname").innerHTML.replace("INSERTTRACKHERE", data["toptracks"]["track"][0]["artist"]["name"].toLowerCase() + " - " + data["toptracks"]["track"][0]["name"].toLowerCase())
     document.getElementById("abouttrackname").setAttribute("href",data["toptracks"]["track"][0]["url"]);
@@ -31,7 +38,7 @@ $.getJSON('../api/getTopTracks', function(data) {
 
 $.getJSON('../api/getRecentTracks', function(data) {
     for (let i = 0; i < 10; i++) {
-        document.getElementById("recent").innerHTML = document.getElementById("recent").innerHTML + '<div class="item">             <img src="' + data["recenttracks"]["track"][i]["image"][1]["#text"] + '" class="backgroundimage">             <img style="z-index: 5;" src="' + data["recenttracks"]["track"][i]["image"][2]["#text"] + '">             <p class="artistname">'+ data["recenttracks"]["track"][i]["artist"]["#text"].toLowerCase() +'</p>             <p class="trackname">'+ truncateString(data["recenttracks"]["track"][i]["name"].toLowerCase(), 22) +'</p>             <p class="position">' + (i+1) + '</p>           </div>';
+        document.getElementById("recent").innerHTML = document.getElementById("recent").innerHTML + '<div class="item">             <img src="' + data["recenttracks"]["track"][i]["image"][1]["#text"] + '" class="backgroundimage">             <img style="z-index: 5;" src="' + data["recenttracks"]["track"][i]["image"][2]["#text"] + '">             <p class="artistname">'+ truncateString(data["recenttracks"]["track"][i]["artist"]["#text"].toLowerCase(), 28) +'</p>             <p class="trackname">'+ truncateString(data["recenttracks"]["track"][i]["name"].toLowerCase(), 22) +'</p>             <p class="position">' + (i+1) + '</p>           </div>';
     }
 });
 
@@ -121,8 +128,7 @@ for (let i = 0; i < 10; i++) {
         if(menu.classList.contains("active")) {
             menu.classList.remove("active");
             toggle.classList.remove("active");
-            document.body.style.backgroundColor = "#000000";
-            
+            document.body.style.backgroundColor = "#000000"; 
         } else {
             menu.classList.add("active");
             toggle.classList.add("active");
