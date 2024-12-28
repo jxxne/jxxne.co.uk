@@ -45,13 +45,13 @@ body {
     background-size: 100px 100px,100px 100px;
     background-position: -1px -1px,-1px -1px;
     transform: rotateX(85deg);
-    animation: planeMoveTop 12s infinite linear;
+    /*animation: planeMoveTop 12s infinite linear;*/
 }
 
 .background .layer1 .bottom-plane {
     transform: rotateX(-85deg);
     top: -30%;
-    animation: planeMoveBot 30s infinite linear;
+    /*animation: planeMoveBot 30s infinite linear;*/
 }
   
   @keyframes planeMoveTop {
@@ -692,11 +692,24 @@ body {
     .about h3 {
       font-size: 15px;
     }
+    .music {
+      top: 100px;
+      transform: translate(-50%, 0%);
+      max-height: calc(100vh - 100px);
+      height: calc(100vh - 100px);
+      flex-direction: column;
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: fixed;
+    }
     .music .boxleft {
       width:100vw;
     }
     .music .boxright {
-      width:100vw;
+      padding-top: 5px;
+      margin-bottom: 100px;
+      margin-left: 0;
+      width: 100vw;
     }
     .music .boxleft h3 {
       text-align: center;
@@ -734,5 +747,18 @@ body {
     .music .album img {
       width: 22.5vw;
       height: 22.5vw;
+    }
+    .listening {
+      left: calc(50vw);
+      position: relative;
+      transform: translateX(-50%);
+    }
+    .notice {
+      position: fixed;
+      left: calc(100vw - 10px);
+      transform: translateX(-100%);
+      top: 10px;
+      width: 200px;
+      text-align: right;
     }
   }
