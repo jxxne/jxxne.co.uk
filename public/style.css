@@ -680,30 +680,37 @@ body {
     }
     .about {
       text-align: center;
-      width: calc(100vw - 15px);
+      width: calc(90vw);
+      height: fit-content;
+      top: calc(50vh);
+      transform: translate(0%, -50%);
+      left: calc(5vw - 15px);
     }
     .side {
       width: 100px;
       height: 200px;
     }
     .about p {
-      font-size: 10px;
+      font-size: 3vw;
     }
     .about h3 {
-      font-size: 15px;
+      font-size: 4.5vw;
+      padding-bottom: 10px;
     }
     .music {
-      top: 100px;
-      transform: translate(-50%, 0%);
-      max-height: calc(100vh - 100px);
-      height: calc(100vh - 100px);
       flex-direction: column;
-      overflow-y: auto;
+      overflow-y: hidden;
       overflow-x: hidden;
       position: fixed;
+      text-align: center;
+      width: calc(90vw);
+      height: fit-content;
+      top: calc(50vh);
+      transform: translate(0%, -50%);
+      left: calc(5vw - 15px);
     }
     .music .boxleft {
-      width:100vw;
+      width:calc(90vw);
     }
     .music .boxright {
       padding-top: 5px;
@@ -728,8 +735,13 @@ body {
       padding: 2vw;
       overflow-x: scroll;
       gap: 2vw;
-      max-width: 100vw;
+      max-width: 90vw;
     }
+   .unscrolled {
+      transition:ease-in-out 0.5s;
+      mask: -webkit-linear-gradient(0deg, rgba(0,0,0,1) 63%, rgba(0,0,0,0) 100%);
+    }
+
     .music .album {
       width: 22.5vw;
       min-width:22.5vw;
