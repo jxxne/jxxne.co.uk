@@ -704,7 +704,8 @@ body {
       position: fixed;
       text-align: center;
       width: calc(90vw);
-      height: fit-content;
+      height: 325px;
+      overflow: auto;
       top: calc(50vh);
       transform: translate(0%, -50%);
       left: calc(5vw - 15px);
@@ -714,9 +715,9 @@ body {
     }
     .music .boxright {
       padding-top: 5px;
-      margin-bottom: 100px;
+      margin-bottom: 5;
       margin-left: 0;
-      width: 100vw;
+      width:calc(90vw);
     }
     .music .boxleft h3 {
       text-align: center;
@@ -738,8 +739,10 @@ body {
       max-width: 90vw;
     }
    .unscrolled {
-      transition:ease-in-out 0.5s;
       mask: -webkit-linear-gradient(0deg, rgba(0,0,0,1) 63%, rgba(0,0,0,0) 100%);
+    }
+    .unscrolledy {
+      mask: -webkit-linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 35%);
     }
 
     .music .album {
@@ -761,9 +764,8 @@ body {
       height: 22.5vw;
     }
     .listening {
-      left: calc(50vw);
+      left: calc((90vw - 348px) / 2);
       position: relative;
-      transform: translateX(-50%);
     }
     .notice {
       position: fixed;
