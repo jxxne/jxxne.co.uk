@@ -1,7 +1,7 @@
 const express = require('express') 
 const config = require('./config')
 const path = require('path') 
-const hbs = require('hbs') 
+const handlebars = require('express-handlebars');
 const app = express() 
 const cache = require('memory-cache')
 const { Client, GatewayIntentBits } = require('discord.js');
@@ -13,14 +13,21 @@ const discordtoken = config.DISCORD_TOKEN
 const discordid = "1096132124983165039";
 
 // View Engine Setup 
-app.set('views', path.join(__dirname)) 
-app.set('view engine', 'hbs') 
+app.set('views', path.join(__dirname, "views")) 
+app.set('view engine', 'handlebars') 
 app.use(express.static('public'))
 app.use(express.json());
   
-app.get('/', function(req, res){ 
+app.engine('handlebars', handlebars.engine({
+    extname: 'hbs',
+    layoutsDir: __dirname + '/views/layout/',
+    defaultLayout: 'index',
+    partialsDir: __dirname + '/views/partials/'
+    }));
     
-}) 
+app.get('/', (req, res) => {
+    res.render('main');
+});
 
 const discordclient = new Client({
     intents: [
@@ -32,7 +39,6 @@ const discordclient = new Client({
 });
 
 app.get('/api/getDiscordUser', async (req, res) => {
-
     const cachedDiscordUser = cache.get('cachedDiscordUser')
     if(cachedDiscordUser) {
         res.status(200).json(cachedDiscordUser)
