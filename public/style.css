@@ -1,3 +1,12 @@
+:root {
+  --primary-dark: #a54483;
+  --secondary-dark: #02012a;
+  --primary-bright: #da6c8c;
+  --secondary-bright: #180e4c;
+}
+
+
+
 html {
     height: 100%;
     overflow: hidden;
@@ -14,7 +23,7 @@ body {
 .background {
     width: calc(100vw);
     height: calc(100vh);
-    background-color: #02012a;
+    background-color: var(--secondary-dark);
     position:fixed;
     top: 0;
 }
@@ -22,7 +31,7 @@ body {
 .background .layer1 {
     position: relative;
     height: 100%;
-    background: linear-gradient(#02012a 25%, #a54483 50%, #a54483 50%, #02012a 100%);
+    background: linear-gradient(var(--secondary-dark) 25%, var(--primary-dark) 50%, var(--primary-dark) 50%, var(--secondary-dark) 100%);
     /**filter: blur(2px);**/
 }
    
@@ -41,7 +50,7 @@ body {
     position: absolute;
     bottom: -30%;
     left: -50%;
-    background-image: -webkit-linear-gradient(#a54483 2px, transparent 2px), -webkit-linear-gradient(left, #a54483 2px, transparent 2px);
+    background-image: -webkit-linear-gradient(var(--primary-dark) 2px, transparent 2px), -webkit-linear-gradient(left, var(--primary-dark) 2px, transparent 2px);
     background-size: 100px 100px,100px 100px;
     background-position: -1px -1px,-1px -1px;
     transform: rotateX(85deg);
@@ -106,7 +115,7 @@ body {
 
   .menu {
     z-index: 10;
-    background-color: #180e4c;
+    background-color: var(--secondary-bright);
     position: absolute;
     width:max-content;
     height: auto;
@@ -120,7 +129,7 @@ body {
     max-width: calc(100vw - 40px);
   }
   .menu .page {
-    color: #da6c8c;
+    color: var(--primary-bright);
     font-size: 20px;
     padding: 15px;
     margin: 10px;
@@ -130,15 +139,15 @@ body {
     cursor: pointer;
   }
   .menu .page:hover {
-    background-color: #da6c8c;
-    color: #180e4c;
+    background-color: var(--primary-bright);
+    color: var(--secondary-bright);
     transition: 0.2s;
   }
 
   .content {
     z-index: 2;
-    background-color: #180e4c;
-    color: #da6c8c;
+    background-color: var(--secondary-bright);
+    color: var(--primary-bright);
     position: absolute;
     /*width: calc(50vw);*/
     height: auto;
@@ -168,7 +177,7 @@ body {
 
   .content .link {
     text-decoration: none;
-    color: #da6c8c;
+    color: var(--primary-bright);
     font-weight: 600;
   }
 
@@ -226,7 +235,7 @@ body {
   }
 
   .music .album .hover a {
-    color: #da6c8c;
+    color: var(--primary-bright);
     text-align: center;
     top: 55px;
     left: 55px;
@@ -241,7 +250,7 @@ body {
   .music .listening {
     margin-top: 10px;
     width: 348px;
-    background-color: #02012a;
+    background-color: var(--secondary-dark);
     height: 200px;
     border-radius: 5px;
     box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.55);
@@ -361,7 +370,7 @@ body {
     top: calc(50vh);
     transform: translate(-50%, -50%);
     position: absolute;
-    filter: drop-shadow(5px 5px 0px #a54483);
+    filter: drop-shadow(5px 5px 0px var(--primary-dark));
   }
 
   .notice {
@@ -372,7 +381,7 @@ body {
     left: 15px;
     text-decoration: none;
     font-weight: 400;
-    color: #da6c8c;
+    color: var(--primary-bright);
   }
 
   .socials {
@@ -393,15 +402,15 @@ body {
     height: calc(60px * 1.2);
     display: flex;
     position: relative;
-    color: #da6c8c;
+    color: var(--primary-bright);
     cursor: pointer;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
   }
   .socials .mainlinks .item:hover { 
-    background-color: #da6c8c;
-    color: #180e4c;
+    background-color: var(--primary-bright);
+    color: var(--secondary-bright);
     transition: 0.2s;
   }
 
@@ -585,7 +594,7 @@ body {
   }
 
   .contact .discordprofile .hover a {
-    color: #da6c8c;
+    color: var(--primary-bright);
     text-align: center;
     top: 75px;
     left: 170px;
@@ -600,8 +609,8 @@ body {
   }
 
   .menu-button {
-    color: #da6c8c;
-    background-color: #180e4c;
+    color: var(--primary-bright);
+    background-color: var(--secondary-bright);
     width: 80px;
     height: 80px;
     position: fixed;
@@ -615,8 +624,8 @@ body {
   }
 
   .menu-button.active {
-    background-color: #da6c8c;
-    color: #180e4c;
+    background-color: var(--primary-bright);
+    color: var(--secondary-bright);
     transition: 0.2s;
   }
 
@@ -632,12 +641,12 @@ body {
     top: 0;
     width: 100vw;
     height:100vh;
-    background-color: #180e4c;
+    background-color: var(--secondary-bright);
     position: fixed;
     z-index: 3;
     opacity: 0;
     visibility: hidden;
-    transition: 0.5s;
+    transition: 0.2s;
   }
   .mobile-menu.active {
     visibility: visible;
@@ -650,7 +659,7 @@ body {
     position: fixed;
   }
   .mobile-menu .pages a {
-    color: #da6c8c;
+    color: var(--primary-bright);
     width: calc(100vw - 40px);
     text-align: right;
     position: absolute;
