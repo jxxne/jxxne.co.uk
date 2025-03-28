@@ -670,6 +670,67 @@ body {
     position:relative;
     display: inline-block;
   }
+
+
+
+
+  .projects {
+    width: 370px;
+    padding: 0px;
+    height: 443px;
+    overflow: auto;
+  }
+
+  .projects .mainlinks { 
+    width: 370px;
+  }
+
+  .projects .mainlinks .item { 
+    float: left;
+    width: 340px;
+    height: fit-content;
+    display: flex;
+    position: relative;
+    color: var(--primary-bright);
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    padding: 15px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  .projects .mainlinks .item h1 {
+    z-index: 5;
+    font-weight: 600;
+    font-size: 24px;
+    position: relative;
+    text-align: left;
+  }
+  .projects .mainlinks .item p {
+    z-index: 5;
+    font-weight: 200;
+    font-size: 16px;
+    position: relative;
+    text-align: right;
+  }
+  .projects .title {
+    font-weight: 300;
+    width: 370px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .projects .secondarytitle {
+    font-weight: 300;
+    font-size: 20px;
+    width: 370px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+
   @media (max-width:650px) {
     .menu {
       visibility: hidden;
